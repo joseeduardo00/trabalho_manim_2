@@ -300,6 +300,138 @@ class Exercicio10(Scene):
         self.wait()
 
         # ==================================================
+        # RESOLUÇÃO MATEMÁTICA
+        # ==================================================
+
+        self.play(
+            FadeOut(
+                altura,
+                h,
+                raio,
+                R,
+                txt_agua,
+                txt_oleo,
+                torneira
+            )
+        )
+
+        titulo = Text(
+            "Resolução",
+            font_size=38
+        ).to_edge(UP)
+
+        self.play(Write(titulo))
+
+        # Volume inicial da água
+
+        eq1 = MathTex(
+            r"V=\frac{1}{3}\pi r^2h"
+        )
+
+        self.play(Write(eq1))
+        self.wait(2)
+
+        self.play(eq1.animate.shift(UP*0.8))
+
+        eq2 = MathTex(
+            r"V_{agua}=\frac{1}{8}V_{cone}"
+            )
+
+        self.play(Write(eq2))
+
+        self.wait(3)
+
+        self.play(
+            FadeOut(eq1),
+            FadeOut(eq2)
+        )
+
+        # Semelhança
+
+        semelhanca = MathTex(
+            r"\frac{r}{R}=\frac{x}{h}"
+        )
+
+        self.play(Write(semelhanca))
+
+        self.wait(2)
+
+        self.play(
+            semelhanca.animate.shift(UP*0.8)
+        )
+
+        eq3 = MathTex(
+            r"r=\frac{Rx}{h}"
+        )
+
+        self.play(Write(eq3))
+
+        self.wait(3)
+
+        self.play(
+            FadeOut(eq3)
+        )
+
+        # Substituição
+
+        eq4 = MathTex(
+            r"V=\frac13\pi\left(\frac{Rx}{h}\right)^2x"
+        )
+
+        self.play(Write(eq4))
+
+        self.wait(3)
+
+        self.play(
+            eq4.animate.shift(UP*0.8)
+        )
+
+        eq5 = MathTex(
+            r"V=\frac13\pi R^2\frac{x^3}{h^2}"
+        )
+
+        self.play(Write(eq5))
+
+        self.wait(3)
+
+        self.play(
+            FadeOut(eq5)
+        )
+
+        # Igualando os volumes
+
+        eq6 = MathTex(
+            r"\frac{x^3}{h^3}=\frac18"
+        )
+
+        self.play(Write(eq6))
+
+        self.wait(3)
+
+        self.play(
+            eq6.animate.shift(UP*0.8)
+        )
+
+        eq7 = MathTex(
+            r"x=\frac{h}{2}"
+        )
+
+        self.play(Write(eq7))
+
+        self.wait(4)
+
+        texto = Text(
+            "Assim, inicialmente a água ocupa metade da altura.",
+            font_size=28
+        ).to_edge(DOWN)
+
+        self.play(Write(texto))
+
+        self.wait(3)
+
+        self.play(FadeOut(texto))
+
+        # ==================================================
         # CONCLUSÃO
         # ==================================================
 
